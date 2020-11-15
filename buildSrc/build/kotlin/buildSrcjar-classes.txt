@@ -1,0 +1,1 @@
+/Users/abdelrahman/AndroidStudioProjects/MySkeletonApp/buildSrc/build/classes/kotlin/main/AppConfig.class:/Users/abdelrahman/AndroidStudioProjects/MySkeletonApp/buildSrc/build/classes/kotlin/main/AppDependencies.class:/Users/abdelrahman/AndroidStudioProjects/MySkeletonApp/buildSrc/build/classes/kotlin/main/Versions.class
