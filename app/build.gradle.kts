@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("kotlin-android")
 }
 
 android {
@@ -23,17 +24,16 @@ android {
         }
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures.viewBinding = true
 }
 
 dependencies {
@@ -42,6 +42,8 @@ dependencies {
     implementation(AppDependencies.appCompat)
     implementation(AppDependencies.material)
     implementation(AppDependencies.constraintLayout)
+    implementation(AppDependencies.navFragment)
+    implementation(AppDependencies.navUi)
     // test libs
     testImplementation(AppDependencies.junit)
     androidTestImplementation(AppDependencies.androidxJunit)

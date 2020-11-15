@@ -10,6 +10,7 @@ object Versions {
     const val appCompat = "1.2.0"
     const val material = "1.2.1"
     const val constraintLayout = "2.0.4"
+    const val nav = "2.3.1"
 
     const val junit = "4.13.1"
     const val androidxJunit = "1.1.2"

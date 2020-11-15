@@ -4,6 +4,8 @@ object AppDependencies {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.appCompat}"
     const val material = "com.google.android.material:material:${Versions.material}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
+    const val navFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+    const val navUi = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
 
     //Testing
     const val junit = "junit:junit:${Versions.junit}"
