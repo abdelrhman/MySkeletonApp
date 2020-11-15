@@ -38,7 +38,7 @@ dependencies {
     implementation(AppDependencies.appCompat)
     implementation(AppDependencies.material)
     implementation(AppDependencies.constraintLayout)
-    //test libs
+    // test libs
     testImplementation(AppDependencies.junit)
     androidTestImplementation(AppDependencies.androidxJunit)
     androidTestImplementation(AppDependencies.espressoCore)
