@@ -13,7 +13,6 @@ android {
         targetSdkVersion(AppConfig.targetSdk)
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
-
         testInstrumentationRunner = AppConfig.androidTestInstrumentation
     }
 
@@ -23,6 +22,11 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8

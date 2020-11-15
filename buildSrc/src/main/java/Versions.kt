@@ -1,6 +1,7 @@
 object Versions {
     const val ktlintPlugin = "9.4.1"
     const val ktlint = "0.39.0"
+    const val detektPlugin = "1.14.2"
 
     const val gradle = "4.1.1"
     const val kotlin = "1.4.10"

@@ -2,6 +2,7 @@ import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
 
 plugins {
     id("org.jlleitschuh.gradle.ktlint") version Versions.ktlintPlugin
+    id("io.gitlab.arturbosch.detekt") version Versions.detektPlugin
 }
 
 ktlint {
@@ -21,6 +22,16 @@ ktlint {
     filter {
         exclude("**/generated/**")
         include("**/kotlin/**")
+    }
+}
+
+detekt {
+    version = "1.0.0"
+    failFast = true
+    reports {
+        xml {
+            destination = file("$project.buildDir/reports/detekt/detekt.xml")
+        }
     }
 }
 
