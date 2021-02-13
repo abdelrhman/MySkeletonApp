@@ -2,6 +2,10 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("kotlin-android")
+    id("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("de.mannodermaus.android-junit5")
+   id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -15,6 +19,7 @@ android {
         versionCode = AppConfig.versionCode
         versionName = AppConfig.versionName
         testInstrumentationRunner = AppConfig.androidTestInstrumentation
+        buildConfigField("String", "UNSPLASH_ACCESS_KEY", "\"K7PPvdelDvrFKhVcPS7kogggqZCGcHhB7Zd-BI-zGp4\"")
     }
 
     buildTypes {
@@ -31,21 +36,50 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
 
     buildFeatures.viewBinding = true
+    buildFeatures.dataBinding = true
 }
 
 dependencies {
     implementation(AppDependencies.kotlinStdLib)
+    implementation(AppDependencies.kotlinCoroutinesAndroid)
     implementation(AppDependencies.coreKtx)
     implementation(AppDependencies.appCompat)
     implementation(AppDependencies.material)
     implementation(AppDependencies.constraintLayout)
     implementation(AppDependencies.navFragment)
     implementation(AppDependencies.navUi)
+    implementation(AppDependencies.lifecycleLiveData)
+    implementation(AppDependencies.lifecycleViewModel)
+    implementation(AppDependencies.hiltAndroid)
+    kapt(AppDependencies.hiltCompiler)
+    implementation(AppDependencies.timber)
+    implementation(AppDependencies.retrofit)
+    implementation(AppDependencies.retrofitGsonConverter)
+    implementation(AppDependencies.loggingInterceptor)
+    implementation(AppDependencies.room)
+    kapt(AppDependencies.roomCompiler)
+    implementation(AppDependencies.roomKtx)
+    implementation(AppDependencies.workManger)
+    implementation(AppDependencies.paging)
+    kapt(AppDependencies.glideCompiler)
+    implementation(AppDependencies.glide)
+
     // test libs
-    testImplementation(AppDependencies.junit)
+
+    testImplementation(UnitTest.jupiterApi)
+    testImplementation(UnitTest.jupiterParams)
+    testRuntimeOnly(UnitTest.jupiterEngine)
+
+
     androidTestImplementation(AppDependencies.androidxJunit)
+    androidTestImplementation(AppDependencies.coreTesting)
     androidTestImplementation(AppDependencies.espressoCore)
+    androidTestImplementation(AppDependencies.workTesting)
+    androidTestImplementation(AppDependencies.hiltTesting)
+    kaptAndroidTest(AppDependencies.hiltCompiler)
 }
