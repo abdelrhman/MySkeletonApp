@@ -38,15 +38,18 @@ object AppDependencies {
     const val workManger = "androidx.work:work-runtime-ktx:${Versions.workManger}"
 
     //Paging
-    const val paging =  "androidx.paging:paging-runtime:${Versions.paging}"
+    const val paging = "androidx.paging:paging-runtime:${Versions.paging}"
 
     const val glideCompiler = "com.github.bumptech.glide:compiler:${Versions.glideVersion}"
-    const val glide =  "com.github.bumptech.glide:glide:${Versions.glideVersion}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
     //Testing
-    const val junit = "junit:junit:${Versions.junit}"
     const val androidxJunit = "androidx.test.ext:junit:${Versions.androidxJunit}"
     const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
     const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
     const val workTesting = "androidx.work:work-testing:${Versions.workManger}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
+    const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutineTest}"
+    const val hamcrest = "org.hamcrest:hamcrest-all:${Versions.hamcrest}"
 }

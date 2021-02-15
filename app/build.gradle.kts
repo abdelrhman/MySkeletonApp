@@ -5,7 +5,7 @@ plugins {
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
     id("de.mannodermaus.android-junit5")
-   id("androidx.navigation.safeargs.kotlin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -39,7 +39,7 @@ android {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
-
+    testOptions.unitTests.isIncludeAndroidResources = true
     buildFeatures.viewBinding = true
     buildFeatures.dataBinding = true
 }
@@ -74,6 +74,10 @@ dependencies {
     testImplementation(UnitTest.jupiterApi)
     testImplementation(UnitTest.jupiterParams)
     testRuntimeOnly(UnitTest.jupiterEngine)
+    testImplementation(AppDependencies.mockk)
+    testImplementation(AppDependencies.coreTesting)
+    testImplementation(AppDependencies.coroutineTest)
+    testImplementation(AppDependencies.hamcrest)
 
 
     androidTestImplementation(AppDependencies.androidxJunit)
@@ -81,5 +85,6 @@ dependencies {
     androidTestImplementation(AppDependencies.espressoCore)
     androidTestImplementation(AppDependencies.workTesting)
     androidTestImplementation(AppDependencies.hiltTesting)
+    androidTestImplementation(AppDependencies.mockkAndroid)
     kaptAndroidTest(AppDependencies.hiltCompiler)
 }
