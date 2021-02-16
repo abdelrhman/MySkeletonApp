@@ -3,9 +3,9 @@ package com.abdelrahman.myskeletonapp.data.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.abdelrahman.myskeletonapp.data.remote.paging.UnsplashPagingSource
 import com.abdelrahman.myskeletonapp.data.remote.api.UnsplashService
 import com.abdelrahman.myskeletonapp.data.remote.model.UnsplashPhoto
+import com.abdelrahman.myskeletonapp.data.remote.paging.UnsplashPagingSource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

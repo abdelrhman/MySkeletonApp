@@ -54,7 +54,8 @@ class PlantsListFragmentTest {
         onView(withId(R.id.plant_list))
             .perform(
                 RecyclerViewActions.actionOnItem<RecyclerView.ViewHolder>(
-                    hasDescendant(withText(testPlant.name)), click()
+                    hasDescendant(withText(testPlant.name)),
+                    click()
                 )
             )
         verify {

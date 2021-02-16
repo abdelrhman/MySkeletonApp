@@ -17,7 +17,3 @@ object NetworkModule {
         return UnsplashService.create()
     }
 }
-
-
-
-

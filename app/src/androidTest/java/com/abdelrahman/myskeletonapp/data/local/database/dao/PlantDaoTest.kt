@@ -9,7 +9,7 @@ import com.abdelrahman.myskeletonapp.data.local.model.Plant
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.MatcherAssert.assertThat
-import org.hamcrest.Matchers.*
+import org.hamcrest.Matchers.equalTo
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
@@ -17,7 +17,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class PlantDaoTest{
+class PlantDaoTest {
 
     private lateinit var database: AppDatabase
     private lateinit var plantDao: PlantDao
@@ -27,7 +27,6 @@ class PlantDaoTest{
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
-
 
     @Before
     fun createDb() = runBlocking {
@@ -70,7 +69,4 @@ class PlantDaoTest{
     fun testGetPlant() = runBlocking {
         assertThat(plantDao.getPlant(plantA.plantId).first(), equalTo(plantA))
     }
-
-
-
 }

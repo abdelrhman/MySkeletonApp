@@ -1,8 +1,8 @@
 package com.abdelrahman.myskeletonapp.di
 
 import android.content.Context
-import com.abdelrahman.myskeletonapp.data.local.database.dao.PlantDao
 import com.abdelrahman.myskeletonapp.data.local.database.AppDatabase
+import com.abdelrahman.myskeletonapp.data.local.database.dao.PlantDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +24,4 @@ object DatabaseModule {
     fun providePlantDao(appDatabase: AppDatabase): PlantDao {
         return appDatabase.plantDao()
     }
-
 }
