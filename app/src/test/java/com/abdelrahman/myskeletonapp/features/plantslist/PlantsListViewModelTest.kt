@@ -40,21 +40,21 @@ class PlantsListViewModelTest {
 
     @Test
     fun `plant calls the correct repository method based on the grow zone filter `() {
-        //arrange
+        // arrange
         every { savedStateHandle.get<Int>("GROW_ZONE_SAVED_STATE_KEY") } returns -1
         every { plantsRepository.getPlants() } returns flowOf(testPlants)
         val viewModel = PlantsListViewModel(plantsRepository, savedStateHandle)
-        //act
+        // act
         viewModel.clearGrowZoneNumber()
-        //assert
+        // assert
         assertThat(viewModel.plants.getOrAwaitValue(), equalTo(testPlants))
-        //arrange
+        // arrange
         val growZone = 2
         val expected = testPlants.filter { it.growZoneNumber == growZone }
         every { plantsRepository.getPlantsWithGrowZoneNumber(growZone) } returns flowOf(expected)
-        //act
+        // act
         viewModel.setGrowZoneNumber(growZone)
-        //assert
+        // assert
         assertThat(viewModel.plants.getOrAwaitValue(), equalTo(expected))
     }
 }

@@ -5,9 +5,9 @@ import com.abdelrahman.myskeletonapp.data.local.model.Plant
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.collect
-import org.junit.jupiter.api.Assertions.*
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class PlantRepositoryImplTest {

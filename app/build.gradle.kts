@@ -106,7 +106,6 @@ dependencies {
     testImplementation(AppDependencies.coroutineTest)
     testImplementation(AppDependencies.hamcrest)
 
-
     androidTestImplementation(AppDependencies.androidxJunit)
     androidTestImplementation(AppDependencies.coreTesting)
     androidTestImplementation(AppDependencies.espressoCore)
