@@ -8,9 +8,9 @@ import com.abdelrahman.myskeletonapp.data.local.database.AppDatabase
 import com.abdelrahman.myskeletonapp.data.local.model.Plant
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import org.hamcrest.Matchers
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.*
 import org.junit.After
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -46,29 +46,29 @@ class PlantDaoTest{
     @Test
     fun testGetPlants() = runBlocking {
         val plantList = plantDao.getPlants().first()
-        Assert.assertThat(plantList.size, Matchers.equalTo(3))
+        assertThat(plantList.size, equalTo(3))
 
         // Ensure plant list is sorted by name
-        Assert.assertThat(plantList[0], Matchers.equalTo(plantA))
-        Assert.assertThat(plantList[1], Matchers.equalTo(plantB))
-        Assert.assertThat(plantList[2], Matchers.equalTo(plantC))
+        assertThat(plantList[0], equalTo(plantA))
+        assertThat(plantList[1], equalTo(plantB))
+        assertThat(plantList[2], equalTo(plantC))
     }
 
     @Test
     fun testGetPlantsWithGrowZoneNumber() = runBlocking {
         val plantList = plantDao.getPlantsWithGrowZoneNumber(1).first()
-        Assert.assertThat(plantList.size, Matchers.equalTo(2))
-        Assert.assertThat(plantDao.getPlantsWithGrowZoneNumber(2).first().size, Matchers.equalTo(1))
-        Assert.assertThat(plantDao.getPlantsWithGrowZoneNumber(3).first().size, Matchers.equalTo(0))
+        assertThat(plantList.size, equalTo(2))
+        assertThat(plantDao.getPlantsWithGrowZoneNumber(2).first().size, equalTo(1))
+        assertThat(plantDao.getPlantsWithGrowZoneNumber(3).first().size, equalTo(0))
 
         // Ensure plant list is sorted by name
-        Assert.assertThat(plantList[0], Matchers.equalTo(plantA))
-        Assert.assertThat(plantList[1], Matchers.equalTo(plantB))
+        assertThat(plantList[0], equalTo(plantA))
+        assertThat(plantList[1], equalTo(plantB))
     }
 
     @Test
     fun testGetPlant() = runBlocking {
-        Assert.assertThat(plantDao.getPlant(plantA.plantId).first(), Matchers.equalTo(plantA))
+        assertThat(plantDao.getPlant(plantA.plantId).first(), equalTo(plantA))
     }
 
 

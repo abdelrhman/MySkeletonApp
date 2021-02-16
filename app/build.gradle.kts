@@ -27,6 +27,20 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+        getByName("debug") {
+            isMinifyEnabled = false
+            isTestCoverageEnabled = true
+        }
+    }
+
+    sourceSets {
+        val sharedTestDir = "src/sharedTest/java"
+        getByName("androidTest") {
+            java.srcDirs(sharedTestDir)
+        }
+        getByName("test") {
+            java.srcDirs(sharedTestDir)
+        }
     }
 
     compileOptions {
@@ -39,9 +53,22 @@ android {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
-    testOptions.unitTests.isIncludeAndroidResources = true
+    testOptions.unitTests {
+        isIncludeAndroidResources = true
+    }
     buildFeatures.viewBinding = true
     buildFeatures.dataBinding = true
+
+    packagingOptions {
+        exclude("META-INF/AL2.0")
+        exclude("META-INF/LGPL2.1")
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        force("androidx.test:monitor:1.4.0-alpha04")
+    }
 }
 
 dependencies {
@@ -83,8 +110,11 @@ dependencies {
     androidTestImplementation(AppDependencies.androidxJunit)
     androidTestImplementation(AppDependencies.coreTesting)
     androidTestImplementation(AppDependencies.espressoCore)
+    androidTestImplementation(AppDependencies.espressoContrib)
     androidTestImplementation(AppDependencies.workTesting)
-    androidTestImplementation(AppDependencies.hiltTesting)
     androidTestImplementation(AppDependencies.mockkAndroid)
+    androidTestImplementation(AppDependencies.coroutineTest)
+    debugImplementation(AppDependencies.fragmentTesting)
+    androidTestImplementation(AppDependencies.hiltTesting)
     kaptAndroidTest(AppDependencies.hiltCompiler)
 }

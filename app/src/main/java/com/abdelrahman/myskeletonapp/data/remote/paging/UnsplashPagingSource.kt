@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.abdelrahman.myskeletonapp.data.paging
+package com.abdelrahman.myskeletonapp.data.remote.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

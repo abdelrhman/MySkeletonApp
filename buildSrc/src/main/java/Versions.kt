@@ -35,4 +35,7 @@ object Versions {
     const val mockk = "1.10.6"
     const val coroutineTest = "1.4.2"
     const val hamcrest = "1.3"
+    const val fragmentTesting = "1.2.5"
+    const val androidXTestCore = "1.0.0"
+    const val androidXFragment = "1.2.5"
 }

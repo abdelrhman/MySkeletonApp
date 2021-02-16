@@ -7,5 +7,5 @@ object AppConfig {
     const val versionCode = 1
     const val versionName = "1.0.0"
 
-    const val androidTestInstrumentation = "com.abdelrahman.myskeletonapp.testutilities.MainTestRunner"
+    const val androidTestInstrumentation = "com.abdelrahman.myskeletonapp.MainTestRunner"
 }

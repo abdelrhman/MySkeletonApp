@@ -5,8 +5,8 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.work.ListenableWorker
 import androidx.work.WorkManager
 import androidx.work.testing.TestListenableWorkerBuilder
-import org.hamcrest.CoreMatchers
-import org.junit.Assert
+import org.hamcrest.CoreMatchers.*
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -31,6 +31,6 @@ class SeedDatabaseWorkerTest {
         // Start the work synchronously
         val result = worker.startWork().get()
 
-        Assert.assertThat(result, CoreMatchers.`is`(ListenableWorker.Result.success()))
+        assertThat(result, `is`(ListenableWorker.Result.success()))
     }
 }

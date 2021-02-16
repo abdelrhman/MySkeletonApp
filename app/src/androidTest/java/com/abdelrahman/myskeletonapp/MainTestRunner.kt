@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.abdelrahman.myskeletonapp.testutilities
+package com.abdelrahman.myskeletonapp
 
 import android.app.Application
 import android.content.Context
